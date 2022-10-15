@@ -15,7 +15,7 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
-    <Counter />
+    <Counter count={2} on:count={(c) => console.log(c.detail)} />
   </div>
 
   <p>

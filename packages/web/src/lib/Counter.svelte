@@ -1,7 +1,12 @@
 <script lang="ts">
-  let count: number = 0
+  import { createEventDispatcher } from 'svelte'
+
+  const dispatch = createEventDispatcher()
+
+  export let count: number = 0
   const increment = () => {
     count += 1
+    dispatch('count', count)
   }
 </script>
 
