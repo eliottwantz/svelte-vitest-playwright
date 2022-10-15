@@ -6,5 +6,10 @@ export default defineConfig({
   plugins: [svelte()],
   server: {
     port: 3000
+  },
+  test: {
+    include: ['src/**/*.test.ts'],
+    globals: true,
+    environment: 'jsdom'
   }
 })
