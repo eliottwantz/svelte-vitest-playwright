@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, describe, test } from 'vitest'
+import { afterAll, beforeAll, beforeEach, describe, test } from 'vitest'
 import { preview } from 'vite'
 import type { PreviewServer } from 'vite'
 import { chromium } from 'playwright'
@@ -16,6 +16,10 @@ describe('basic', async () => {
     page = await browser.newPage()
   })
 
+  beforeEach(async () => {
+    await page.goto('http://localhost:3000')
+  })
+
   afterAll(async () => {
     await browser.close()
     await new Promise<void>((resolve, reject) => {
@@ -24,7 +28,6 @@ describe('basic', async () => {
   })
 
   test('shows proper heading when rendered', async () => {
-    await page.goto('http://localhost:3000')
     const button = page.locator('button')
     expect(button).toBeDefined()
 
@@ -36,7 +39,6 @@ describe('basic', async () => {
 
   // Note: This is as an async test as we are using `fireEvent`
   test('changes button text on click', async () => {
-    await page.goto('http://localhost:3000')
     const button = page.locator('button')
     expect(button).toBeDefined()
 
