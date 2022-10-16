@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest --ui",
-    "playtest:playwrightwright": "playwright test",
+    "test:playwright": "playwright test",
     "show-report": "playwright show-report",
     "test:coverage": "vitest run --coverage"
   },

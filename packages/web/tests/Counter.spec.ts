@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test.describe('basic', async () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:3000')
+    await page.goto('http://localhost:4174')
   })
 
   test('shows proper heading when rendered', async ({ page }) => {
