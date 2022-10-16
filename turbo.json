@@ -3,17 +3,18 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".dist/**"]
+      "outputs": [".dist/**"],
+      "inputs": ["!test/**/*.ts"]
     },
     "test": {
       "dependsOn": ["build"],
       "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "inputs": ["src/**/*.{ts,svelte}", "tests/**/*.ts"]
     },
     "test:playwright": {
       "dependsOn": ["build"],
       "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "inputs": ["src/**/*.{ts,svelte}", "tests/**/*.ts"]
     },
     "lint": {
       "outputs": []
