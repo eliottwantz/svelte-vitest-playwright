@@ -36,7 +36,6 @@ describe('basic', async () => {
     await expect(counterText).toHaveText('count is 2')
   })
 
-  // Note: This is as an async test as we are using `fireEvent`
   test('changes button text on click', async () => {
     const button = page.locator('button')
     expect(button).toBeDefined()
