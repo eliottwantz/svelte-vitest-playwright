@@ -1,13 +1,12 @@
 import type { PlaywrightTestConfig } from '@playwright/experimental-ct-svelte'
-import { devices } from '@playwright/experimental-ct-svelte'
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests/unit',
+  testDir: './src/lib/unit',
   /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
-  snapshotDir: './tests/unit/__snapshots__',
+  snapshotDir: './src/lib/unit/__snapshots__',
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */

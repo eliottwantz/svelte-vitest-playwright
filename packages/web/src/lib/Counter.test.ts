@@ -6,12 +6,12 @@ import Counter from './Counter.svelte'
 
 describe('Counter', () => {
   test('shows proper heading when rendered', () => {
-    const { container } = render(Counter, { count: 2 })
+    const { container } = render(Counter, { count: 34 })
     const button = screen.getByRole('button')
-    const counterText = container.querySelector('span')
     expect(button).toBeDefined()
+    const counterText = container.querySelector('span')
     expect(counterText).toBeDefined()
-    expect(counterText.innerHTML).toEqual('count is 2')
+    expect(counterText.innerHTML).toEqual('count is 34')
   })
 
   // Note: This is as an async test as we are using `fireEvent`
