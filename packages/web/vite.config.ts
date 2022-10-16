@@ -10,7 +10,7 @@ export default defineConfig({
     port: 3000
   },
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.{test,spec}.ts'],
     globals: true,
     environment: 'jsdom'
   }
