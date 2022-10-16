@@ -1,9 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, test } from 'vitest'
 import { preview } from 'vite'
 import type { PreviewServer } from 'vite'
-import { chromium } from 'playwright'
-import type { Browser, Page } from 'playwright'
-import { expect } from '@playwright/test'
+import type { Browser, Page } from '@playwright/test'
+import { expect, chromium } from '@playwright/test'
 
 describe('basic', async () => {
   let server: PreviewServer
