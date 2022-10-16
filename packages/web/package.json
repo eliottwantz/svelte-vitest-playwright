@@ -12,9 +12,11 @@
     "test:watch": "vitest --ui",
     "test:playwright": "playwright test",
     "show-report": "playwright show-report",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-svelte": "^1.27.1",
     "@playwright/test": "^1.27.1",
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
     "@testing-library/jest-dom": "^5.16.5",
