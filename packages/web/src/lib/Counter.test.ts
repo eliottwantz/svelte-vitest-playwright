@@ -7,8 +7,11 @@ import Counter from './Counter.svelte'
 describe('Counter', () => {
   test('shows proper heading when rendered', () => {
     const { container } = render(Counter, { count: 2 })
-    const button = container.querySelector('button')
+    const button = screen.getByRole('button')
+    const counterText = container.querySelector('span')
     expect(button).toBeDefined()
+    expect(counterText).toBeDefined()
+    expect(counterText.innerHTML).toEqual('count is 2')
   })
 
   // Note: This is as an async test as we are using `fireEvent`
@@ -16,11 +19,12 @@ describe('Counter', () => {
     const { container } = render(Counter, { count: 2 })
 
     const button: HTMLButtonElement = container.querySelector('button')
+    const value = screen.getByTestId('value')
 
     // Using await when firing events because we have to wait
     // for the next `tick` so that Svelte flushes all pending state changes.
     await fireEvent.click(button)
 
-    expect(button.innerHTML).toEqual('count is 3')
+    expect(value.innerHTML).toEqual('count is 3')
   })
 })

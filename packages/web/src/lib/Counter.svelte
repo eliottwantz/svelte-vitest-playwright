@@ -11,5 +11,5 @@
 </script>
 
 <button on:click={increment}>
-  count is {count}
+  <span data-testid="value">count is {count}</span>
 </button>
