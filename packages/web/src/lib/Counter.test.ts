@@ -1,24 +1,26 @@
-import { describe, test, expect, assert } from 'vitest'
-import { render, fireEvent, screen } from '@testing-library/svelte'
+import '@testing-library/jest-dom'
+import { fireEvent, render, screen } from '@testing-library/svelte'
+import { describe, expect, test } from 'vitest'
 
 import Counter from './Counter.svelte'
 
-describe.concurrent('Counter', () => {
+describe('Counter', () => {
   test('shows proper heading when rendered', () => {
-    render(Counter, { count: 2 })
-    const heading = screen.getByRole('button')
-    expect(heading).toBeDefined()
+    const { container } = render(Counter, { count: 2 })
+    const button = container.querySelector('button')
+    expect(button).toBeDefined()
   })
 
   // Note: This is as an async test as we are using `fireEvent`
   test('changes button text on click', async () => {
-    render(Counter, { count: 2 })
-    const button: HTMLButtonElement = screen.getByRole('button')
+    const { container } = render(Counter, { count: 2 })
 
-    // Using await when firing events is unique to the svelte testing library because
-    // we have to wait for the next `tick` so that Svelte flushes all pending state changes.
+    const button: HTMLButtonElement = container.querySelector('button')
+
+    // Using await when firing events because we have to wait
+    // for the next `tick` so that Svelte flushes all pending state changes.
     await fireEvent.click(button)
 
-    expect(button.value).toEqual('3')
+    expect(button.innerHTML).toEqual('count is 3')
   })
 })
